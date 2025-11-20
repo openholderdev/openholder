@@ -4,7 +4,7 @@ import { ICustomer } from "../domain/models/CustomerSchema";
 import connectDB from "@/API/configs/db/mongoconnection";
 import bcrypt from 'bcryptjs';
 import { MailerManagerController } from "../../Mailer/infra/MailerManagerController";
-import { randomUUID, UUID, UUID } from "crypto";
+import { randomUUID, UUID } from "crypto";
 
 export class AuthenticateCustomer implements RegisterCustomer {
   private req: NextApiRequest;
@@ -59,7 +59,7 @@ export class AuthenticateCustomer implements RegisterCustomer {
     }
   }
 
-  private async validateExistingCustomer() : Promise<boolean> {
+  async validateExistingCustomer() : Promise<boolean> {
     const db = await connectDB();
     const existCustomer = await db.collection("customers").findOne({ email: this.req.body.email });
     
