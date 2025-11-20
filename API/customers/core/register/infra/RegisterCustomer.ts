@@ -32,6 +32,7 @@ export class AuthenticateCustomer implements RegisterCustomer {
       const customerPasswordHashed = await bcrypt.hash(customerSchema.password, 10);
       const confirmedEmailToken : UUID = randomUUID(); 
       const resultInserteCustomer = await customerCollection.insertOne({
+        customerId: randomUUID(),
         firstName: customerSchema.name,
         email: customerSchema.email,
         password: customerPasswordHashed,

@@ -4,4 +4,5 @@ export interface ICustomer {
   phone: number;
   password: string;
   emailVerified: boolean;
+  customerId?: string; // Key for future use with KYC and other services
 }
