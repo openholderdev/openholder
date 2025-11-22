@@ -12,9 +12,13 @@ export type SoldStatus = {
   totalSoldUnits: number;
   totalUnits: number;
 };
-
+export type InvestmentType = 'REAL_ESTATE' | 'TRANSPORT' | 'ENERGY' | 'OTHER';
 export interface Investment {
   investmentId: string;
+  tokenCode: string;
+  nameProject:  string;
+  galleryImages: string[];
+  typeInvestment: InvestmentType;
   status: InvestmentStatus;
   inversionTime: number; 
   financial: FinancialData;

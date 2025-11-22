@@ -7,7 +7,7 @@ import { AiFillShop } from "react-icons/ai";
 
 export default function NavigationMobile() {
   return (
-    <div className="bg-white bottom-0 fixed w-full py-4 px-4 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+    <div className="bg-white bottom-0 fixed w-full py-2 px-4 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
         <nav className="text-[#171717] flex justify-between gap-4 px-4">
           <p className="flex flex-col items-center">
             <MdSpaceDashboard className="text-2xl" />
