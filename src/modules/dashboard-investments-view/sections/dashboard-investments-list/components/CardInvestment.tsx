@@ -25,24 +25,24 @@ export default function CardInvestment({ entry }: { entry: UIInvestment }) {
       </div>
       <div data-testid="investment-header" className="px-4 py-3">
         <div className="flex justify-between">
-          <p className="text-lg font-semibold">{entry.nameProject}</p>
-          <p className="text-lg font-bold">
+          <p className="text-md font-semibold">{entry.nameProject}</p>
+          <p className="text-md font-bold">
             {formatEuropeanNumber(entry.financial.totalInvestmentAmount)}
           </p>
         </div>
       </div>
       <div data-testid="investment-fast-info" className="px-4 py-1 gap-3 flex">
-        <span className="text-sm flex items-center gap-2 px-3 py-1 rounded-full font-semibold shadow bg-[#f1f2f3] cursor-pointer">
+        <span className="text-xs flex items-center gap-2 px-3 py-1 rounded-full font-semibold shadow bg-[#f1f2f3] cursor-pointer">
           <RiContractFill />
           {entry.tokenCode}
         </span>
         <span
-          className={`text-sm flex items-center gap-2 px-3 py-1 rounded-full font-semibold shadow cursor-pointer ${buttonBg} ${buttonText}`}
+          className={`text-xs flex items-center gap-2 px-3 py-1 rounded-full font-semibold shadow cursor-pointer ${buttonBg} ${buttonText}`}
         >
           <span>{TOKEN_STATUS_CONFIGS[entry.status].button.icon}</span>
           {TOKEN_STATUS_CONFIGS[entry.status].name}
         </span>
-        <span className="text-sm px-3 bg-white py-1 rounded-full font-semibold shadow flex items-center gap-2 cursor-pointer">
+        <span className="text-xs px-3 bg-white py-1 rounded-full font-semibold shadow flex items-center gap-2 cursor-pointer">
           {TYPE_INVERSION[entry.typeInvestment].icon}
           {TOKEN_TYPES_CONFIGS[entry.typeInvestment]}
         </span>

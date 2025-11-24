@@ -6,14 +6,35 @@ import { useClickOutside } from "@/src/hooks/useClickOutside";
 import { FaExpandArrowsAlt } from "react-icons/fa";
 import { FaArrowDownWideShort } from "react-icons/fa6";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import { useForm } from "react-hook-form";
+import { DashboardInvestmentsViewController } from "../../DashboardInvestmentsViewController";
 
 export const DashboardInvestmentFilters = observer(function DashboardInvestmentFilters() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const store = new DashboardInvestmentsViewController();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   useClickOutside(dropdownRef, () => {
     setIsOpen(false);
   });
+
+  const onSubmit = (data: any) => {
+    if (store.filterInversionCategory) {
+      store.filterInversionCategory = true as boolean;
+      store.filterInversionCategoryValue = data.investmentType as string;
+    }
+    if (store.filterInversionStatus) {
+      store.filterInversionStatus = true as boolean;
+      store.filterInversionStatusValue = data.investmentStatus as string;
+    }
+    setIsOpen(false);
+  };
 
   return (
     <section className="relative" ref={dropdownRef}>
@@ -40,7 +61,8 @@ export const DashboardInvestmentFilters = observer(function DashboardInvestmentF
         </div>
       </section>
       {isOpen && (
-        <section
+        <form
+          onSubmit={handleSubmit(onSubmit)}
           className="absolute w-full shadow-sm"
           data-testid="dashboard-investment-filters-content"
         >
@@ -60,6 +82,7 @@ export const DashboardInvestmentFilters = observer(function DashboardInvestmentF
                 <select
                   className="w-full px-4 py-3 pr-10 bg-white border-2 border-gray-200 rounded-lg cursor-pointer appearance-none hover:border-gray-300 focus:outline-none focus:border-blue-500 transition-colors"
                   defaultValue=""
+                  {...register("investmentType")}
                 >
                   <option value="" disabled>
                     Elige una categoría
@@ -88,6 +111,7 @@ export const DashboardInvestmentFilters = observer(function DashboardInvestmentF
                 <select
                   className="w-full px-4 py-3 pr-10 bg-white border-2 border-gray-200 rounded-lg cursor-pointer appearance-none hover:border-gray-300 focus:outline-none focus:border-blue-500 transition-colors"
                   defaultValue=""
+                  {...register("investmentStatus")}
                 >
                   <option value="" disabled>
                     Selecciona un estado
@@ -111,33 +135,13 @@ export const DashboardInvestmentFilters = observer(function DashboardInvestmentF
               </div>
             </div>
 
-            <div data-testid="dashboard-investment-filter-search-investment" className="pt-6">
-              <p className="font-semibold">Buscar por nombre</p>
-              <div className="pt-2 relative">
-                <input
-                  type="text"
-                  placeholder="Buscar proyecto..."
-                  className="w-full px-4 py-3 pr-10 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 transition-colors"
-                />
-                <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <circle cx="11" cy="11" r="8" />
-                    <path d="m21 21-4.35-4.35" />
-                  </svg>
-                </div>
-              </div>
+            <div data-testid="dashboard-investment-filter-submit" className="pt-10 flex">
+              <button type="submit" className="w-full bg-[#171717] text-white py-2 rounded-lg">
+                Aplicar filtros
+              </button>
             </div>
           </div>
-        </section>
+        </form>
       )}
     </section>
   );

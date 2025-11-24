@@ -6,6 +6,7 @@ export default function PostAuthenticateCustomerByEmail(req: NextApiRequest, res
     const InvestmentController = new APIInvestment(req, res);
     InvestmentController.sendInvestmentList();
   } catch (error) {
+    console.log(error)
     res.status(500).json({
       isError: true,
       code: 500,

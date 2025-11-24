@@ -5,7 +5,12 @@ import { APIInvestmentManager } from "./core/Infra/APIInvestmentManager";
 export class DashboardInvestmentsViewController {
   private static instance: DashboardInvestmentsViewController;
   public listInvestments : UIInvestment[] | null = null;
-
+  
+  public filterInversionCategory: boolean = false;
+  public filterInversionCategoryValue: string | null = null;
+  public filterInversionStatus: boolean = false;
+  public filterInversionStatusValue: string | null = null;
+   
   constructor() {
     makeAutoObservable(this);
   }
