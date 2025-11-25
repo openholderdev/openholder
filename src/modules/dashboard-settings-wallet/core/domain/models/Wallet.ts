@@ -7,6 +7,14 @@ export interface Wallet {
   }
 }
 
+export interface CustomerWallet {
+  customerId: string;
+  walletId: string;
+  walletAddress: string;
+  globalStatus: 'PENDING' | 'APPROVED' | 'REJECTED' | 'NOT_REQUESTED';
+  spainStatus: 'PENDING' | 'APPROVED' | 'REJECTED' | 'NOT_REQUESTED';
+}
+
 export interface WalletCreationDto {
   customerId: string;
   walletAddress: string;

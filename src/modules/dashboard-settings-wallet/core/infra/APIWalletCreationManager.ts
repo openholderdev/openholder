@@ -19,7 +19,7 @@ export class APIWalletCreationManager implements APIPostWalletRepository {
       return Promise.resolve({ isSucces: false } as WalletCreation);
     }
     try {
-      const creationReq = await axios.post('/api/customer/wallet/post-register-wallet',wallet);
+      const creationReq = await axios.post('/api/customer/wallet/post-register-wallet', wallet);
       if (creationReq.status !== 200) {
         return Promise.resolve({ isSucces: false } as WalletCreation);
       }

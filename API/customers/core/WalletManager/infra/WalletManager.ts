@@ -12,7 +12,22 @@ export class WalletManager implements CustomerManagerDomain {
     this.req = req;
     this.res = res;
   }
-
+  async getWalletsCustomerList() : Promise<void> {
+    try {
+      const db = await connectDB();
+      const walletCollection = db.collection("customer_wallets");
+      const customerId = this.req.query.customerId as string;
+      const wallets = await walletCollection.find({ customerId }).toArray();
+      
+      this.res.status(200).json({
+        wallets: wallets,
+      });
+    } catch (error) {
+      this.res.status(200).json({
+        wallets: [],
+      });
+    }
+  }
   async createWalletForCustomer(): Promise<void> {
     try {
       const db = await connectDB();
