@@ -6,17 +6,17 @@ export const WALLET_VERIFY_STATUS = {
   PENDING: {
     chip: (
       <span
-        className={`text-orange-900 bg-orange-300 px-2 rounded-full justify-center text-xs flex items-center font-bold`}
+        className={`flex gap-2 text-orange-900 bg-orange-300 px-2 rounded-full justify-center text-xs flex items-center font-bold`}
       >
         <FaExclamation />
-        PENDING
+        Pendiente
       </span>
     ),
   },
   REJECTED: {
     chip: (
       <span
-        className={`text-red-900 bg-red-300 px-2 rounded-full justify-center text-xs flex items-center font-bold`}
+        className={`flex gap-2 text-red-900 bg-red-300 px-2 rounded-full justify-center text-xs flex items-center font-bold`}
       >
         <IoMdCloseCircleOutline />
         REJECTED
@@ -26,21 +26,32 @@ export const WALLET_VERIFY_STATUS = {
   APPROVED: {
     chip: (
       <span
-        className={`text-green-900 bg-green-300 px-2 rounded-full justify-center text-xs flex items-center font-bold`}
+        className={`flex gap-2 text-green-900 bg-green-300 px-2 rounded-full justify-center text-xs flex items-center font-bold`}
       >
-        APROVED
         <FaCheck />
+        Aprobado
       </span>
     ),
   },
   NOT_REQUESTED: {
     chip: (
       <span
-        className={`text-gray-900 bg-gray-300 px-2 rounded-full justify-center text-xs flex items-center font-bold`}
+        className={`flex gap-2  text-gray-900 bg-gray-300 px-2 rounded-full justify-center text-xs flex items-center font-bold`}
       >
         NOT_REQUESTED
         <FaCheck />
       </span>
     ),
   },
+};
+
+export const SIGNATURES_USER = {
+  GLOBAL: "GLOBAL",
+  SPAIN: "SPAIN",
+};
+export const WALLET_SIGN_STATUS = {
+  NOT_REQUESTED: "NOT_REQUESTED",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+  APPROVED: "APPROVED",
 };

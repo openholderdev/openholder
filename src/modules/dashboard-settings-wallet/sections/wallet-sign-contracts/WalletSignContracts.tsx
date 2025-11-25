@@ -3,7 +3,11 @@ import { FaExclamation } from "react-icons/fa6";
 import { DashboardSettingsWalletController } from "../../DashboardSettingsWalletController";
 import { CustomerWallet } from "../../core/domain/models/Wallet";
 import { toJS } from "mobx";
-import { WALLET_VERIFY_STATUS } from "./WalletSignContract.constants";
+import {
+  SIGNATURES_USER,
+  WALLET_SIGN_STATUS,
+  WALLET_VERIFY_STATUS,
+} from "./WalletSignContract.constants";
 
 export const WalletSignContracts = observer(function WalletSignContracts() {
   const store = DashboardSettingsWalletController.getInstance();
@@ -11,15 +15,6 @@ export const WalletSignContracts = observer(function WalletSignContracts() {
   const walletStoredDetected = toJS(store.customerWalletsStored).find(
     (customerWallet: CustomerWallet) => customerWallet.walletAddress === walletDetected?.address
   );
-  const isWalletStored = toJS(store.customerWalletsStored).some(
-    (customerWallet: CustomerWallet) => customerWallet.walletAddress === walletDetected?.address
-  );
-  const isWalletSignedGlobal = isWalletStored
-    ? walletStoredDetected?.globalStatus === "APPROVED"
-    : null;
-  const isWalletSignedSpain = isWalletStored
-    ? walletStoredDetected?.spainStatus === "APPROVED"
-    : null;
 
   const handleSign = async (signType: "GLOBAL" | "SPAIN") => {
     const result: CustomerWallet[] = await store.createCustomerWallet(signType);
@@ -28,7 +23,7 @@ export const WalletSignContracts = observer(function WalletSignContracts() {
 
   return (
     <section data-testid="wallet-sign-contracts" className="px-4 pt-4">
-      <div className="px-8 py-7 bg-white rounded-lg shadow-md">
+      <div className="px-4 py-7 bg-white rounded-lg shadow-md">
         <div>
           <h4 className="text-xl font-semibold mb-3">Validar wallet</h4>
           <p className="text-sm">
@@ -44,11 +39,13 @@ export const WalletSignContracts = observer(function WalletSignContracts() {
               {WALLET_VERIFY_STATUS[walletStoredDetected?.globalStatus || "NOT_REQUESTED"].chip}
             </div>
             <p className="text-[#171717] text-sm mb-4">
-              text-blue-500 hover:text-blue-700 underline
+              <b> Whitelist Global:</b> Para inversores internacionales que pueden invertir en
+              propiedades fuera de España. Tiene sus propias regulaciones y requisitos de
+              cumplimiento.
             </p>
             <button
-              onClick={() => handleSign("GLOBAL")}
-              disabled={walletStoredDetected?.globalStatus === "PENDING"}
+              onClick={() => handleSign(SIGNATURES_USER.GLOBAL as "GLOBAL")}
+              disabled={walletStoredDetected?.globalStatus !== WALLET_SIGN_STATUS.NOT_REQUESTED}
               className="disabled:bg-gray-200 py-2 w-full font-semibold text-sm text-green-900 bg-green-400 px-5 rounded-lg"
             >
               Solicitar
@@ -60,12 +57,14 @@ export const WalletSignContracts = observer(function WalletSignContracts() {
               {WALLET_VERIFY_STATUS[walletStoredDetected?.spainStatus || "NOT_REQUESTED"].chip}
             </div>
             <p className="text-[#171717] text-sm mb-4">
-              text-blue-500 hover:text-blue-700 underline
+              <b>Whitelist España:</b> Para inversores que quieren invertir específicamente en
+              propiedades españolas. Debe cumplir con la regulación financiera española (como
+              requisitos de la CNMV u otras entidades reguladoras locales).
             </p>
 
             <button
-              onClick={() => handleSign("SPAIN")}
-              disabled={walletStoredDetected?.spainStatus === "PENDING"}
+              onClick={() => handleSign(SIGNATURES_USER.SPAIN as "SPAIN")}
+              disabled={walletStoredDetected?.spainStatus !== WALLET_SIGN_STATUS.NOT_REQUESTED}
               className="disabled:bg-gray-200 py-2 w-full font-semibold text-sm text-green-900 bg-green-400 px-5 rounded-lg"
             >
               Solicitar
