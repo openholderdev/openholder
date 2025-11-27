@@ -6,22 +6,24 @@ import { kycFinancialDefaultValues } from "./form/defaultValues";
 import { zodResolver } from "@hookform/resolvers/zod";
 import RadioSelect from "@/src/components/RadioButton";
 import { DashboardSettingsKycController } from "../../DashboardSettingKycController";
+import { toJS } from "mobx";
 
 export default function KycFinancialInformation() {
   const store = DashboardSettingsKycController.getInstance();
-
   const {
     register,
-    setValue,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<KycFinancialData>({
     resolver: zodResolver(kycFinancialInformationSchema),
     defaultValues: kycFinancialDefaultValues,
   });
-
   const handleSubmitKycFinancialInformation = (data: KycFinancialData) => {
     store.setFormFinancialDataCompleted(data);
+  };
+
+  const handleGoBack = () => {
+    store.setStepView(1);
   };
 
   return (
@@ -61,7 +63,10 @@ export default function KycFinancialInformation() {
             );
           })}
           <div className="col-span-6 ">
-            <button className="py-2 w-full bg-white text-black border-1 border-black rounded-md">
+            <button
+              onClick={handleGoBack}
+              className="py-2 w-full bg-white text-black border-1 border-black rounded-md"
+            >
               Back
             </button>
           </div>

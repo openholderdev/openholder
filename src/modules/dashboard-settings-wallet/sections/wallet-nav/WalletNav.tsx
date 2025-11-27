@@ -8,7 +8,7 @@ export default function WalletNav() {
 
   return (
     <section data-testid="dashboard-settings-wallet-nav" className="bg-white">
-      <div className="flex w-full px-4 py-6 border-b border-gray-700">
+      <div className="flex w-full py-[0.75rem] px-4 py-6 border-b border-gray-700">
         <nav className="flex w-full items-center justify-around text-gray-800 font-bold text-sm">
           <div>
             <p

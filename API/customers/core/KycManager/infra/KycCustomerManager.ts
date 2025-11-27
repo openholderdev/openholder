@@ -12,6 +12,34 @@ export class KycCustomerManager implements KycCustomerManagerDomain {
     this.res = res;
   }
 
+  async existCustomerKyc(): Promise<void> {
+    const { customerId } = this.req.query;
+    try {
+      const db = await connectDB();
+      const collection = db.collection("kyc_customers");
+      
+      const getKycCustomer = await collection.findOne({ customerId: customerId as string });
+      if (getKycCustomer) {
+        this.res.status(200).json({
+          isError: false,
+          customerKycCompleted: getKycCustomer.isValidKyc,
+          data: getKycCustomer,
+          status: getKycCustomer?.status
+        });
+      } else {
+        this.res.status(200).json({
+          isError: false,
+          customerKycCompleted: false
+        });
+      }
+  } catch (error) {
+      this.res.status(401).json({
+          isError: false,
+          customerKycCompleted: false
+        });
+    }
+  }
+
   async getCustomerValidation(): Promise<void> {
     const { email } = this.req.query;
     try {

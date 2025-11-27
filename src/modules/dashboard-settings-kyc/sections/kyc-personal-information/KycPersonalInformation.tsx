@@ -7,22 +7,32 @@ import Input from "@/src/components/Input";
 import GenderSelect from "@/src/components/GenderSelect";
 import DashboardSettingKyc from "../../DashboardSettingKyc";
 import { DashboardSettingsKycController } from "../../DashboardSettingKycController";
+import { toJS } from "mobx";
 
 export default function KycPersonalInformation() {
   const store = DashboardSettingsKycController.getInstance();
+  const formControllerData = toJS(store.formPersonalDataCompleted);
+
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<KycFormData>({
     resolver: zodResolver(kycPersonalInformationSchema),
-    defaultValues: kycStep1DefaultValues,
+    defaultValues: formControllerData || kycStep1DefaultValues,
   });
 
   const handleSetInformationPersonal = (customer: KycFormData) => {
     store.setFormPersonalDataCompleted(customer);
     store.setStepView(2);
   };
+
+  const handleGoBack = () => {
+    store.setStepView(0);
+    store.activeStepView = 0;
+    store.formPersonalDataCompleted = kycStep1DefaultValues;
+  };
+
   return (
     <section data-testid="dashboard-settings-kyc-step-1" className="pb-10">
       <form onSubmit={handleSubmit(handleSetInformationPersonal)}>
@@ -89,7 +99,10 @@ export default function KycPersonalInformation() {
               <Input label="Dirección" registerKey="address" register={register} errors={errors} />
             </div>
             <div className="col-span-6 ">
-              <button className="py-2 w-full bg-white text-black border-1 border-black rounded-md">
+              <button
+                onClick={handleGoBack}
+                className="py-2 w-full bg-white text-black border-1 border-black rounded-md"
+              >
                 Back
               </button>
             </div>

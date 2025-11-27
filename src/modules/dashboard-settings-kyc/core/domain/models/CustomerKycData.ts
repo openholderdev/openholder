@@ -38,10 +38,16 @@ export interface CustomerIdentityData {};
 export interface CustomerKycSchema {
   customerId: string;
   kycId: string;
-  creationDate: Date;
+  creationDate: Date | string;
   isValidKyc: boolean;
   status: 'pending' | 'inReview' | 'approved' | 'rejected';
-  updateDate: Date;
+  updateDate: Date | string;
   personal: CustomerPersonalData;
   financial: CustomerFinancialData;
+}
+
+export interface CustomerKycRegister {
+  customerKycCompleted: boolean,
+  data?: CustomerKycSchema,
+  status?: 'pending' | 'approbed' | 'rejected'
 }

@@ -5,12 +5,15 @@ import { APICustomerKycManager } from "./core/infra/APICustomerKycManager";
 import { v4 as uuidv4 } from "uuid";
 
 import { CustomerFinancialData, CustomerKycSchema, CustomerPersonalData } from "./core/domain/models/CustomerKycData";
+import { initialize } from "next/dist/server/lib/render-server";
 
 export class DashboardSettingsKycController {
   private static instance: DashboardSettingsKycController;
   #apiCustomerKycRepository = new APICustomerKycManager();
 
   initialState = {
+    showCustomerHasKycData: false as boolean,
+    statusKycCustomer: null as 'pending' | 'approved' | 'rejected' | null,
     activeStepView: 0 as number,
     personalDataCompleted: false as boolean,
     financialDataCompleted: false as boolean,
@@ -18,6 +21,8 @@ export class DashboardSettingsKycController {
     formFinancialDataCompleted: kycFinancialDefaultValues,
     kycReviewIsPending: false as boolean,
   }
+  statusKycCustomer = this.initialState.statusKycCustomer;
+  showCustomerHasKycData = this.initialState.showCustomerHasKycData;
   activeStepView : number = this.initialState.activeStepView;
   personalDataCompleted = this.initialState.personalDataCompleted;
   financialDataCompleted = this.initialState.financialDataCompleted;
@@ -29,6 +34,22 @@ export class DashboardSettingsKycController {
     makeAutoObservable(this);
   }
 
+  async initialize(customerId: string = '23324123') {
+    try {
+      type response = { customerKycExists: boolean, data?: CustomerKycSchema };
+      const customerKycCheckRequest: response | Error = await this.#apiCustomerKycRepository.checkExistingKyc?.(customerId);
+
+      if (customerKycCheckRequest.customerKycExists) {
+        this.showCustomerHasKycData = true;
+        this.statusKycCustomer = customerKycCheckRequest.data?.status as 'pending' | 'approved' | 'rejected';
+      } else {
+        this.showCustomerHasKycData = false;
+        this.statusKycCustomer = null;
+      }
+    } catch (error) {
+      console.error("Error initializing KYC data:", error);
+    }
+  };
   reset() {
     this.activeStepView = this.initialState.activeStepView;
     this.personalDataCompleted = this.initialState.personalDataCompleted;
@@ -54,7 +75,7 @@ export class DashboardSettingsKycController {
       customerId: '23324123',
       creationDate: new Date().toDateString(),
       kycId: kycId,
-      isValidKyc: false,
+      isValidKyc: true, // Us for checking KYC validity status
       status: 'pending',
       personal: toJS(this.formPersonalDataCompleted) as unknown as CustomerPersonalData,
       financial: toJS(data) as unknown as CustomerFinancialData,
