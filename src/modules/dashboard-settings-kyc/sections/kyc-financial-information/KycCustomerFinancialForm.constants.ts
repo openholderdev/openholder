@@ -2,7 +2,7 @@ export interface FinancialFormField {
   registerKey: string;
   label: string;
   type: 'text' | 'checkbox';
-  options?: { label: string; value: any }[];
+  options?: { label: string; value: string }[];
 }
 
 export const FINANCIAL_FORM: FinancialFormField[] = [
@@ -11,8 +11,8 @@ export const FINANCIAL_FORM: FinancialFormField[] = [
     label: "¿Eres un nuevo inversor?",
     type: "checkbox",
     options: [
-      { label: "Sí", value: true },
-      { label: "No", value: false }
+      { label: "Sí", value: "true" },
+      { label: "No", value: "false" }
     ]
   },
   {
@@ -20,8 +20,8 @@ export const FINANCIAL_FORM: FinancialFormField[] = [
     label: "¿Conoces lo que es un security token y los riesgos que la inversión en los mismos conlleva?",
     type: "checkbox",
     options: [
-      { label: "Sí", value: true },
-      { label: "No", value: false }
+      { label: "Sí", value: "true" },
+      { label: "No", value: "false" }
     ]
   },
   {
@@ -29,8 +29,8 @@ export const FINANCIAL_FORM: FinancialFormField[] = [
     label: "¿Sabes que invirtiendo en empresas no cotizadas puedes perder hasta el 100% de tu inversión?",
     type: "checkbox",
     options: [
-      { label: "Sí", value: true },
-      { label: "No", value: false }
+      { label: "Sí", value: "true" },
+      { label: "No", value: "false" }
     ]
   },
   {
@@ -38,10 +38,10 @@ export const FINANCIAL_FORM: FinancialFormField[] = [
     label: "¿Sabes que invirtiendo en empresas no cotizadas puedes perder hasta el 100% de tu inversión?",
     type: "checkbox",
     options: [
-      { label: "Menos del 25%", value: 25 },
-      { label: "Entre el 25% y el 50%", value: 50 },
-      { label: "Entre el 50% y el 75%", value: 75 },
-      { label: "Más del 75%", value: 100 },
+      { label: "Menos del 25%", value: "25" },
+      { label: "Entre el 25% y el 50%", value: "50" },
+      { label: "Entre el 50% y el 75%", value: "75" },
+      { label: "Más del 75%", value: "100" },
     ]
   },
   {
@@ -84,9 +84,9 @@ export const FINANCIAL_FORM: FinancialFormField[] = [
     label: "¿Que fluctuaciones de tu inversión estás dispuesto a asumir?",
     type: "checkbox",
     options: [
-      { label: "Mi objetivo es preservar el capital invertido y no estoy dispuesto a asumir riesgos", value: 1 },
-      { label: "Estoy dispuesto a asumir fluctuaciones moderadas de mi capital invertido", value: 2 },
-      { label: "Estoy dispuesto a asumir fluctuacines elevadas de mi capital invertido", value: 3 },
+      { label: "Mi objetivo es preservar el capital invertido y no estoy dispuesto a asumir riesgos", value: "1" },
+      { label: "Estoy dispuesto a asumir fluctuaciones moderadas de mi capital invertido", value: "2" },
+      { label: "Estoy dispuesto a asumir fluctuacines elevadas de mi capital invertido", value: "3" },
     ]
   },
   {
@@ -94,10 +94,10 @@ export const FINANCIAL_FORM: FinancialFormField[] = [
     label: "¿Qué objetivos persigues al realizar la inversión?",
     type: "checkbox",
     options: [
-      { label: "Preservar el capital", value: 0 },
-      { label: "Crecimiento medio del capital, asumiendo riesgo moderado", value: 1 },
-      { label: "Aprovechar las oportunidades del mercado asumiendo riesgo", value: 2 },
-      { label: "Crecimiento fuerte de capital asumiendo fuertes riesgos", value: 3 },
+      { label: "Preservar el capital", value: "0" },
+      { label: "Crecimiento medio del capital, asumiendo riesgo moderado", value: "1" },
+      { label: "Aprovechar las oportunidades del mercado asumiendo riesgo", value: "2" },
+      { label: "Crecimiento fuerte de capital asumiendo fuertes riesgos", value: "3" },
     ]
   },
   {
@@ -105,10 +105,10 @@ export const FINANCIAL_FORM: FinancialFormField[] = [
     label: "Nivel de estudios",
     type: "checkbox",
     options: [
-      { label: "No tengo estudios", value: 0 },
-      { label: "Estudios básicos", value: 1 },
-      { label: "Estudios superiores", value: 2 },
-      { label: "Estudios superiores o postgrado en materia financiera", value: 3 },
+      { label: "No tengo estudios", value: "0" },
+      { label: "Estudios básicos", value: "1" },
+      { label: "Estudios superiores", value: "2" },
+      { label: "Estudios superiores o postgrado en materia financiera", value: "3" },
     ]
   },
   {

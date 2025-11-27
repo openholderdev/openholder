@@ -11,12 +11,14 @@ export class DashboardSettingsKycController {
     financialDataCompleted: false as boolean,
     formPersonalDataCompleted: kycStep1DefaultValues,
     formFinancialDataCompleted: kycFinancialDefaultValues,
+    kycReviewIsPending: false as boolean,
   }
   activeStepView : number = this.initialState.activeStepView;
   personalDataCompleted = this.initialState.personalDataCompleted;
   financialDataCompleted = this.initialState.financialDataCompleted;
   formPersonalDataCompleted = this.initialState.formPersonalDataCompleted;
   formFinancialDataCompleted = this.initialState.formFinancialDataCompleted;
+  kycReviewIsPending = this.initialState.kycReviewIsPending;
 
   private constructor() {
     makeAutoObservable(this);
@@ -40,8 +42,8 @@ export class DashboardSettingsKycController {
   };
   
   setFormFinancialDataCompleted(data: any) {
-    this.formFinancialDataCompleted = data;
-    this.financialDataCompleted = true;
+    this.kycReviewIsPending = true;
+    this.reset();
   };
 
   public static getInstance(): DashboardSettingsKycController {

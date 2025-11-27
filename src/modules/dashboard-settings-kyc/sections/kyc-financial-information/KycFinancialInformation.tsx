@@ -12,6 +12,7 @@ export default function KycFinancialInformation() {
 
   const {
     register,
+    setValue,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<KycFinancialData>({
@@ -21,7 +22,6 @@ export default function KycFinancialInformation() {
 
   const handleSubmitKycFinancialInformation = (data: KycFinancialData) => {
     store.setFormFinancialDataCompleted(data);
-    store.setStepView(3);
   };
 
   return (

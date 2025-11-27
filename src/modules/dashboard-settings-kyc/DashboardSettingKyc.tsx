@@ -30,6 +30,18 @@ export default observer(function DashboardSettingKyc() {
         <NavigationMobile />
       </>
     ),
+    "4": (
+      <>
+        <DashboardNavbar />
+        <KycNav />
+        <KycSuccess />
+        <NavigationMobile />
+      </>
+    ),
   };
+
+  if (controller.kycReviewIsPending) {
+    return <>{stepViews["4"]}</>;
+  }
   return <>{stepViews[controller.activeStepView]}</>;
 });
