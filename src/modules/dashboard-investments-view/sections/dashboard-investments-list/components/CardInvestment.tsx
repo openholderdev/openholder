@@ -9,8 +9,11 @@ import {
 import ProgressBar from "@/src/components/ProgressBar";
 import { formatDate } from "../../../utils/dates";
 import { TfiReload } from "react-icons/tfi";
+import DashboardBuyTokenSection from "../../dashboard-buy-token-section/DasboardBuyTokenSection";
+import { useState } from "react";
 
 export default function CardInvestment({ entry }: { entry: UIInvestment }) {
+  const [buyToken, setBuyToken] = useState<boolean>(false);
   const existGallery = String(entry.galleryImages[0]);
   const buttonBg = TOKEN_STATUS_CONFIGS[entry.status].button.bgColor;
   const buttonText = TOKEN_STATUS_CONFIGS[entry.status].button.textColor;
@@ -74,34 +77,46 @@ export default function CardInvestment({ entry }: { entry: UIInvestment }) {
           />
         </div>
       )}
-      <div data-testid="investment-info" className="w-full px-4 py-4">
-        <div className="w-full flex flex-col gap-2">
-          <p className="flex justify-between w-full text-sm">
-            Período de inversión
-            <span className="font-semibold">{entry.financial.monthlyRentEstimate} meses</span>
-          </p>
-          <p className="flex justify-between w-full text-sm">
-            Rentabilidad total estimada
-            <span className="font-semibold">{entry.financial.monthlyRentEstimate}%</span>
-          </p>
-          <p className="flex justify-between w-full text-sm">
-            Rentabilidad anual estimada
-            <span className="font-semibold">{entry.financial.rentabilityAnnualEstimate}%</span>
-          </p>
-          {entry.status === TOKEN_STATUS_CONFIGS.IN_CONFIG.type && (
+      {buyToken ? (
+        <DashboardBuyTokenSection investmentId={entry.investmentId} />
+      ) : (
+        <div data-testid="investment-info" className="w-full px-4 py-4">
+          <div className="w-full flex flex-col gap-2">
             <p className="flex justify-between w-full text-sm">
-              Inicio renta
-              <span className="font-semibold">{formatDate(String(entry.initRentEstimate))}</span>
+              Período de inversión
+              <span className="font-semibold">{entry.financial.monthlyRentEstimate} meses</span>
             </p>
-          )}
-          <p className="pt-2 flex justify-center">
-            <span className="flex items-center gap-2 text-xs">
-              <TfiReload className="text-green-600" />
-              Rendimiento mensual + final
-            </span>
-          </p>
+            <p className="flex justify-between w-full text-sm">
+              Rentabilidad total estimada
+              <span className="font-semibold">{entry.financial.monthlyRentEstimate}%</span>
+            </p>
+            <p className="flex justify-between w-full text-sm">
+              Rentabilidad anual estimada
+              <span className="font-semibold">{entry.financial.rentabilityAnnualEstimate}%</span>
+            </p>
+            {entry.status === TOKEN_STATUS_CONFIGS.IN_CONFIG.type && (
+              <p className="flex justify-between w-full text-sm">
+                Inicio renta
+                <span className="font-semibold">{formatDate(String(entry.initRentEstimate))}</span>
+              </p>
+            )}
+            <p className="pt-2 flex justify-center">
+              <span className="flex items-center gap-2 text-xs">
+                <TfiReload className="text-green-600" />
+                Rendimiento mensual + final
+              </span>
+            </p>
+            <div>
+              <button
+                onClick={() => setBuyToken(true)}
+                className="py-2 w-full bg-[#171717] text-white cursor-pointer border-1 border-black rounded-md"
+              >
+                Invertir
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

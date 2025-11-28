@@ -16,7 +16,7 @@ export const DashboardSettingsWallet = observer(function DashboardSettingsWallet
 
   useEffect(() => {
     handleCustomerKycCheck();
-    store.getCustomerWalletsStored("23324123");
+    store.getCustomerWalletsStored(session?.user.id as string);
   }, [session?.user.email]);
 
   const handleCustomerKycCheck = async () => {

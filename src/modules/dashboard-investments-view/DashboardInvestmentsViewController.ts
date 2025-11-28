@@ -1,6 +1,8 @@
 import { makeAutoObservable, runInAction, toJS } from "mobx";
 import { UIInvestment } from "./core/Domain/models/Investment";
 import { APIInvestmentManager } from "./core/Infra/APIInvestmentManager";
+import { APITransactionManager } from "./core/Infra/APITransactionManager";
+import { Transaction } from "./core/Domain/models/Transaction";
 
 export class DashboardInvestmentsViewController {
   private static instance: DashboardInvestmentsViewController;
@@ -15,6 +17,12 @@ export class DashboardInvestmentsViewController {
     makeAutoObservable(this);
   }
   
+  async createTransaction(transactionViewModel: any) {
+    const ApiInvestmentManager = new APITransactionManager();
+    const transaction = await ApiInvestmentManager.execute(transactionViewModel);
+    console.log(transaction)
+  };
+
   async fetchInvestments(): Promise< UIInvestment[] | void | null> {
     try {
       const ApiInvestmentManager = new APIInvestmentManager();

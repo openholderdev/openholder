@@ -48,17 +48,17 @@ export class DashboardSettingsWalletController {
     });
   }
 
-  async createCustomerWallet(signature: 'GLOBAL' | 'SPAIN'): Promise<CustomerWallet[]> {
+  async createCustomerWallet(signature: 'GLOBAL' | 'SPAIN', customerId: string): Promise<CustomerWallet[]> {
     const controller = APIWalletCreationManager.getInstance();
     
     const result : WalletCreation = await controller.execute({
       walletAddress: this.walletConnectedData?.address as string,
-      customerId: '23324123', 
+      customerId: customerId, 
       alias: 'Default Alias',
       whitelist: signature 
     });
     if (result.isSucces) {
-      const walletsCustomer = await this.#customerWalletController.execute('23324123');
+      const walletsCustomer = await this.#customerWalletController.execute(customerId);
       return walletsCustomer as CustomerWallet[];
     } else {
       return Promise.resolve([] as CustomerWallet[]);

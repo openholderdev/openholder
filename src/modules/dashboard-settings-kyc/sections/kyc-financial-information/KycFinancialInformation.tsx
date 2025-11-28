@@ -7,9 +7,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import RadioSelect from "@/src/components/RadioButton";
 import { DashboardSettingsKycController } from "../../DashboardSettingKycController";
 import { toJS } from "mobx";
+import { useSession } from "next-auth/react";
 
 export default function KycFinancialInformation() {
   const store = DashboardSettingsKycController.getInstance();
+  const { data: session } = useSession();
   const {
     register,
     handleSubmit,
@@ -19,7 +21,7 @@ export default function KycFinancialInformation() {
     defaultValues: kycFinancialDefaultValues,
   });
   const handleSubmitKycFinancialInformation = (data: KycFinancialData) => {
-    store.setFormFinancialDataCompleted(data);
+    store.setFormFinancialDataCompleted(data, session?.user.id as string);
   };
 
   const handleGoBack = () => {

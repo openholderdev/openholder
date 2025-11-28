@@ -34,7 +34,7 @@ export class DashboardSettingsKycController {
     makeAutoObservable(this);
   }
 
-  async initialize(customerId: string = '23324123') {
+  async initialize(customerId: string) {
     try {
       type response = { customerKycExists: boolean, data?: CustomerKycSchema };
       const customerKycCheckRequest: response | Error = await this.#apiCustomerKycRepository.checkExistingKyc?.(customerId);
@@ -67,12 +67,12 @@ export class DashboardSettingsKycController {
     this.personalDataCompleted = true;
   };
   
-  setFormFinancialDataCompleted(data: any) {
+  setFormFinancialDataCompleted(data: any, customerId: string) {
     this.kycReviewIsPending = true;
     const kycId = uuidv4();
     try {
       this.#apiCustomerKycRepository.execute({
-      customerId: '23324123',
+      customerId: customerId,
       creationDate: new Date().toDateString(),
       kycId: kycId,
       isValidKyc: true, // Us for checking KYC validity status

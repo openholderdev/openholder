@@ -8,16 +8,21 @@ import {
   WALLET_SIGN_STATUS,
   WALLET_VERIFY_STATUS,
 } from "./WalletSignContract.constants";
+import { useSession } from "next-auth/react";
 
 export const WalletSignContracts = observer(function WalletSignContracts() {
   const store = DashboardSettingsWalletController.getInstance();
   const walletDetected = toJS(store.walletConnectedData);
+  const { data: session } = useSession();
   const walletStoredDetected = toJS(store.customerWalletsStored).find(
     (customerWallet: CustomerWallet) => customerWallet.walletAddress === walletDetected?.address
   );
 
   const handleSign = async (signType: "GLOBAL" | "SPAIN") => {
-    const result: CustomerWallet[] = await store.createCustomerWallet(signType);
+    const result: CustomerWallet[] = await store.createCustomerWallet(
+      signType,
+      session?.user.id as string
+    );
     store.customerWalletsStored = result;
   };
 
