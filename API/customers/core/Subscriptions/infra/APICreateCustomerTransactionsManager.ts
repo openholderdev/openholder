@@ -16,8 +16,10 @@ export class APICreateCustomerTransactionsManager implements APIPostCreateCustom
   async excute() : Promise<void> {
     const db = await connectDB();
     const subscriptionsStore = db.collection("subscription");
-    
+    const walletsStore = db.collection("wallets");
+
     const body = this.#req.body;
+    
     const result = await subscriptionsStore.findOneAndUpdate(
       { investmentId: body.investmentId },
       { 
@@ -30,12 +32,22 @@ export class APICreateCustomerTransactionsManager implements APIPostCreateCustom
         upsert: false
       }
     );
-
+    const walletUpdate = await walletsStore.findOneAndUpdate({
+      customerId: body.customerId
+    },{
+      $push: {
+        transactions: body
+      }
+    },{
+      returnDocument: 'after',
+      // upsert: false
+    });
     if (!result) {
       this.#res.status(404).json({
         transactionCreated: false,
         error: "Subscription not found",
-        el: body.investmentId
+        el: body.investmentId,
+        walletUpdate: walletUpdate
       });
       return;
     }

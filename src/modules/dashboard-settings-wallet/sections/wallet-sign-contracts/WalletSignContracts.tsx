@@ -50,7 +50,10 @@ export const WalletSignContracts = observer(function WalletSignContracts() {
             </p>
             <button
               onClick={() => handleSign(SIGNATURES_USER.GLOBAL as "GLOBAL")}
-              disabled={walletStoredDetected?.globalStatus !== WALLET_SIGN_STATUS.NOT_REQUESTED}
+              disabled={
+                walletStoredDetected?.globalStatus === WALLET_SIGN_STATUS.APPROVED ||
+                walletStoredDetected?.globalStatus === WALLET_SIGN_STATUS.PENDING
+              }
               className="disabled:bg-gray-200 py-2 w-full font-semibold text-sm text-green-900 bg-green-400 px-5 rounded-lg"
             >
               Solicitar
@@ -69,7 +72,10 @@ export const WalletSignContracts = observer(function WalletSignContracts() {
 
             <button
               onClick={() => handleSign(SIGNATURES_USER.SPAIN as "SPAIN")}
-              disabled={walletStoredDetected?.spainStatus !== WALLET_SIGN_STATUS.NOT_REQUESTED}
+              disabled={
+                walletStoredDetected?.spainStatus === WALLET_SIGN_STATUS.APPROVED ||
+                walletStoredDetected?.spainStatus === WALLET_SIGN_STATUS.PENDING
+              }
               className="disabled:bg-gray-200 py-2 w-full font-semibold text-sm text-green-900 bg-green-400 px-5 rounded-lg"
             >
               Solicitar

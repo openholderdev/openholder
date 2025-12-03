@@ -19,6 +19,7 @@ export class KycCustomerManager implements KycCustomerManagerDomain {
       const collection = db.collection("kyc_customers");
       
       const getKycCustomer = await collection.findOne({ customerId: customerId as string });
+      console.log(customerId)
       if (getKycCustomer) {
         this.res.status(200).json({
           isError: false,
@@ -41,27 +42,24 @@ export class KycCustomerManager implements KycCustomerManagerDomain {
   }
 
   async getCustomerValidation(): Promise<void> {
-    const { email } = this.req.query;
+    const { customerId } = this.req.query;
     try {
       const db = await connectDB();
-      const collection = db.collection("customers");
+      const collection = db.collection("kyc_customers");
       
-      const getCustomer = await collection.findOne({ email: email as string });
-      console.log(email)
+      const getCustomer = await collection.findOne({ customerId: customerId as string });
       if (getCustomer) {
         this.res.status(200).json({
           isError: false,
-          customerKycCompleted: getCustomer.kycStatus !== "NO_STARTED"
+          customerKycCompleted: getCustomer.isValidKyc
         });
       } else {
-        console.log(getCustomer)
         this.res.status(200).json({
           isError: true,
           customerKycCompleted: false
         });
       }
     } catch (error) {
-      console.error(error);
       this.res.status(500).json({
         isError: true,
         code: 500,

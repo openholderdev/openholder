@@ -18,7 +18,7 @@ export class APICustomerKycManager implements APICustomerKycRepository {
   async checkExistingKyc(customerId: string): Promise<{ customerKycExists: boolean, data?: CustomerKycSchema, code?: 'pending' | 'approved' | 'rejected' }> {
     try {
       const request = await axios(`/api/customer/kyc/exist-customer-kyc?customerId=${customerId}`);
-      return Promise.resolve({ customerKycExists: request.data.customerKycCompleted, data: request.data.data, code: request.data.status });
+      return Promise.resolve({ customerKycExists: request.data.customerKycCompleted, data: request.data.data, status: request.data.status });
     } catch {
       return Promise.resolve({ customerKycExists: false });
     }

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#RD-191005] [WEB] Login - Login With Passkey</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://retail-commercial.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <b><a id="parent_issue_summary" href="https://retail-commercial.atlassian.net/browse/RD-20540">SEC Web Login with Passkeys</a></b>
+                <span style="font-size: 9px">(<a id="parent_issue_key" href="https://retail-commercial.atlassian.net/browse/RD-20540">RD-20540</a>)</span>
+                <h3 class="formtitle"><img src="https://retail-commercial.atlassian.net/images/icons/link_out_bot.gif" width="16" height="16" />
+                        [RD-191005]&nbsp;<a href="https://retail-commercial.atlassian.net/browse/RD-191005">[WEB] Login - Login With Passkey</a>
+            <span class="subText">
+               Creada: 08/oct/25                   &nbsp;Actualizada: 03/dic/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Estado:</b></td>
+        <td width="80%">BLOCKED (Certification)</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Proyecto:</b></td>
+        <td width="80%"><a href="https://retail-commercial.atlassian.net/secure/BrowseProject.jspa?id=10014">Product Digital Channels</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Componentes:</b></td>
+            <td>
+                                        <a title="04_SECURITY"
+                href="https://retail-commercial.atlassian.net/issues/?jql=project%3D10014%20AND%20%22component%22%3D10023%20ORDER%20BY%20priority%20ASC"
+            >04_SECURITY</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Versiones afectadas:</b></td>
+            <td>
+                            Ninguno
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Versiones corregidas:</b></td>
+            <td>
+                                        <a title="R 9.0.0"
+                href="https://retail-commercial.atlassian.net/issues/?jql=project%3D10014%20AND%20%22fixVersion%22%3D10467%20ORDER%20BY%20priority%20ASC"
+            >R 9.0.0</a>                        </td>
+    </tr>
+    
+    
+            <td width="20%"><b>Principal:</b></td>
+        <td width="80%"><a href="https://retail-commercial.atlassian.net/browse/RD-20540">SEC Web Login with Passkeys</a></td>
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Tipo:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Historia
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Prioridad:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Medium
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Informador:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="712020:e56e8376-68fc-4c7a-8dd2-0c2eb92415f1"
+                id="word_reporter_712020:e56e8376-68fc-4c7a-8dd2-0c2eb92415f1"
+                href="https://retail-commercial.atlassian.net/secure/ViewProfile.jspa?accountId=712020%3Ae56e8376-68fc-4c7a-8dd2-0c2eb92415f1">
+                    Gerardo Humberto Pascual
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Persona asignada:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="712020:a640677e-3b3e-499d-b64c-4c33ab70f914"
+                id="word_assignee_712020:a640677e-3b3e-499d-b64c-4c33ab70f914"
+                href="https://retail-commercial.atlassian.net/secure/ViewProfile.jspa?accountId=712020%3Aa640677e-3b3e-499d-b64c-4c33ab70f914">
+                    Kevin Rivera Ramirez
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolución:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Sin resolver
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Votos:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Etiquetas:</b>
+        </td>
+        <td id="labels-2364605-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            Ninguno
+                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Trabajo restante estimado:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Desconocido
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Tiempo Trabajado:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Desconocido
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Estimación original:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Desconocido
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+        
+            <tr>
+            <td bgcolor="#f0f0f0" width="20%" valign="top">
+                <b>Enlaces de incidencias:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" class="noPadding">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="blank">
+                                            <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Cloners</b><br/>
+                            </td>
+                        </tr>
+                                    <tr>
+            <td>
+                clones
+            </td>
+            <td>
+                <a href="https://retail-commercial.atlassian.net/browse/RD-190936">
+                     RD-190936                 </a>
+            </td>
+            <td>
+                [WEB] Passkeys Manager - Add A New Pa...
+            </td>
+            <td>
+                FUNCTIONAL TESTING DONE
+            </td>
+        </tr>
+                                                                    </table>
+            </td>
+        </tr>
+    
+
+
+    
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Epic Link:</b></td>
+                <td id="customfield_10014-2364605-value" class="value" bgcolor="#ffffff" width="80%">
+    <a class="aui-label ghx-label-13" href="https://retail-commercial.atlassian.net/browse/RD-20540">
+        SEC Web Login with Passkeys
+    </a>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Channel:</b></td>
+                <td id="customfield_10069-2364605-value" class="value" bgcolor="#ffffff" width="80%">
+
+
+    <div class="shorten" id="customfield_10069-field">
+        							<span>WEB</span>			            </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Story Points:</b></td>
+                <td id="customfield_10035-2364605-value" class="value" bgcolor="#ffffff" width="80%">    8
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Squad:</b></td>
+                <td id="customfield_10080-2364605-value" class="value" bgcolor="#ffffff" width="80%">    Pentagon</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10020-2364605-value" class="value" bgcolor="#ffffff" width="80%">Security Pentagon Sprint 186, Security Pentagon Sprint 187, Security Pentagon Sprint 188, Security Pentagon Sprint 189</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>start Date:</b></td>
+                <td id="customfield_10083-2364605-value" class="value" bgcolor="#ffffff" width="80%">          <span title="13/nov/25"><time datetime="2025-11-13">13/nov/25</time></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Program:</b></td>
+                <td id="customfield_10105-2364605-value" class="value" bgcolor="#ffffff" width="80%">
+
+
+    <div class="shorten" id="customfield_10105-field">
+        							<span>PDC</span>			            </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Automated:</b></td>
+                <td id="customfield_10095-2364605-value" class="value" bgcolor="#ffffff" width="80%">    Yes
+</td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Descripción</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <div class="panel" style="background-color: #eae6ff;border-width: 1px;"><div class="panelContent" style="background-color: #eae6ff;">
+<p><b>As</b> a Reloaded WEB user<br/>
+<b>I want to</b> be able to log in using passkeys<br/>
+<b>So that I</b> can increase the access to my private area</p>
+</div></div>
+
+<div class="panel" style="background-color: #deebff;border-width: 1px;"><div class="panelContent" style="background-color: #deebff;">
+<p><b>Functional Description</b></p>
+
+<p>This feature allows users to log into their banking account using a passkey as an alternative to traditional username/password credentials. A passkey provides a faster and more secure way to authenticate using biometrics or device-based methods. Once the user clicks on continue with passkey, the experience of login with a passkey is delegated to the browser.</p>
+
+<p>If the user already has a passkey, he can use the “Continue with passkey” option on the “Login Password” screen. This option will be visible only if the Feature Flag “<font color="#4c9aff"><b><em>login_passkeys</em></b></font>” is enabled. Once the user has selected the “Continue with passkey“ option, the system will prompt for biometric authentication (e.g., fingerprint or facial recognition) or use a device-bound cryptographic key. No challenge (MFA) will be required for this type of login.</p>
+</div></div>
+
+<div class="panel" style="background-color: #deebff;border-width: 1px;"><div class="panelContent" style="background-color: #deebff;">
+<p><b>Possible Errors</b></p>
+
+<ul>
+	<li><b>No Passkey Found and passkey not created:</b> If a user has not created a passkey and try to authenticate himself with a Passkey, he will see an error message where we explain that a passkey has to be created once the login with password has been succesfully completed and the passkey generation is available in the Security centre. For this purpose, within this error message we will have a redirection to the password input field (and once the password login is completed, we would navigate to the passkey management section instead of to the Global Position).</li>
+	<li><b>Authentication Failed:</b> The biometric/device verification fails because customer is using no longer valid passkey or the device presents a credential that is not registered to the user’s account. In this case a snackbar error will be displayed informing the situation.</li>
+	<li><b>Unsupported Browser/Device:</b> If the user’s current environment does not support passkeys/WebAuthn, then a message will be displayed explaining which browsers are available.</li>
+	<li><b>User Cancelation:</b> The user exits the authentication process mid-way. In this case a snackbar error will be displayed informing the situation.</li>
+</ul>
+</div></div>
+
+<div class="panel" style="background-color: #deebff;border-width: 1px;"><div class="panelContent" style="background-color: #deebff;">
+<h4><a name="BIOCATCHContext"></a><b>BIOCATCH Context</b></h4>
+
+<p>When the customers clicks on the button to login with passkey (just before the browser opens the flow to login with a passkey): <b>LOGIN_PASSKEYS</b></p>
+</div></div>
+
+<div class="panel" style="background-color: #deebff;border-width: 1px;"><div class="panelContent" style="background-color: #deebff;">
+<h4><a name="POEditor%26Configurations"></a><b>POEditor &amp; Configurations</b></h4>
+
+<ul>
+	<li>Business Documention: <a href="https://retail-commercial.atlassian.net/wiki/spaces/RP/pages/712310980/04.1.1.2.9+Login+with+Passkeys" title="smart-link" class="external-link" rel="nofollow noreferrer">https://retail-commercial.atlassian.net/wiki/spaces/RP/pages/712310980/04.1.1.2.9+Login+with+Passkeys</a></li>
+	<li>Configurations: <a href="https://retail-commercial.atlassian.net/wiki/spaces/RP/pages/51195067/00.3+Feature+Flags#login_passkeys" title="smart-link" class="external-link" rel="nofollow noreferrer">https://retail-commercial.atlassian.net/wiki/spaces/RP/pages/51195067/00.3+Feature+Flags#login_passkeys</a></li>
+	<li>POEditors Key: <a href="https://retail-commercial.atlassian.net/wiki/spaces/RP/pages/51202683/PoEditor+Security-Login-MFA#Login-with-Passkeys" title="smart-link" class="external-link" rel="nofollow noreferrer">https://retail-commercial.atlassian.net/wiki/spaces/RP/pages/51202683/PoEditor+Security-Login-MFA#Login-with-Passkeys</a></li>
+</ul>
+</div></div>
+
+<div class="panel" style="background-color: #deebff;border-width: 1px;"><div class="panelContent" style="background-color: #deebff;">
+<h4><a name="Accessibility%26Tagging"></a><b>Accessibility &amp; Tagging</b></h4>
+
+<ul>
+	<li>The accessibility requirements have been defined into the <a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22989-29147&amp;m=dev" class="external-link" rel="nofollow noreferrer"><ins><b>FIGMA</b></ins></a> designs.</li>
+	<li>The tagging requirements have been defined into the <a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22989-29147&amp;m=dev" class="external-link" rel="nofollow noreferrer"><ins><b>FIGMA</b></ins></a> designs.</li>
+</ul>
+</div></div>
+
+<div class="panel" style="background-color: #deebff;border-width: 1px;"><div class="panelContent" style="background-color: #deebff;">
+<p><b>Navigation Flow</b></p>
+
+<p>The user is on the “Login with Password” screen.</p>
+</div></div>
+
+<div class="panel" style="background-color: #deebff;border-width: 1px;"><div class="panelContent" style="background-color: #deebff;">
+<p><b>Designs</b></p>
+
+<ul>
+	<li>UI:
+	<ul>
+		<li><a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22989-29147&amp;m=dev" class="external-link" rel="nofollow noreferrer"><ins><b>Password Screen - Login With Passkey (First Time Login)</b></ins></a></li>
+		<li><a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22993-27258&amp;m=dev" class="external-link" rel="nofollow noreferrer"><ins><b>Password Screen - Login With Passkey (Second Time Login)</b></ins></a></li>
+		<li><a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22994-26884&amp;m=dev" class="external-link" rel="nofollow noreferrer"><ins><b>Login With Passkeys - No Passkeys Created Error</b></ins></a></li>
+		<li><a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22994-29913&amp;m=dev" class="external-link" rel="nofollow noreferrer"><ins><b>Login With Passkeys - Authentication Error</b></ins></a></li>
+		<li><a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22994-27280&amp;m=dev" class="external-link" rel="nofollow noreferrer"><ins><b>Login With Passkeys - Not Compatible Error</b></ins></a></li>
+		<li><a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22995-26163&amp;m=dev" class="external-link" rel="nofollow noreferrer"><ins><b>Login With Passkeys - User Cancels Login Error</b></ins></a></li>
+	</ul>
+	</li>
+</ul>
+</div></div>
+
+<div class="panel" style="background-color: #deebff;border-width: 1px;"><div class="panelContent" style="background-color: #deebff;">
+<h4><a name="TechnicalDescription"></a><b>Technical Description</b></h4>
+
+<p>To create a new passkey from the “Passkeys Manager” screen, it will be necessary to use the following API:</p>
+
+<ul>
+	<li><a href="https://retail-commercial.atlassian.net/wiki/spaces/RP/pages/987136890/04.1.1.2.9+API+SSS+-+Init+Login+Passkeys" title="smart-link" class="external-link" rel="nofollow noreferrer">https://retail-commercial.atlassian.net/wiki/spaces/RP/pages/987136890/04.1.1.2.9+API+SSS+-+Init+Login+Passkeys</a></li>
+	<li><a href="https://retail-commercial.atlassian.net/wiki/spaces/RP/pages/987136910/04.1.1.2.9+API+SSS+-+Finish+Login+Passkeys" title="smart-link" class="external-link" rel="nofollow noreferrer">https://retail-commercial.atlassian.net/wiki/spaces/RP/pages/987136910/04.1.1.2.9+API+SSS+-+Finish+Login+Passkeys</a></li>
+</ul>
+</div></div>
+
+<div class="panel" style="background-color: #deebff;border-width: 1px;"><div class="panelContent" style="background-color: #deebff;">
+<p><b>Assumptions</b></p>
+
+<ol>
+	<li>The Feature Flag “<font color="#4c9aff"><b><em>login_passkeys</em></b></font>” is enabled.</li>
+</ol>
+</div></div>
+
+<div class="panel" style="background-color: #deebff;border-width: 1px;"><div class="panelContent" style="background-color: #deebff;">
+<p><b>Acceptance Criteria (The main ACs will be marked with the icon:</b> 🎯)</p>
+</div></div>
+
+<div class="panel" style="background-color: #e3fcef;border-width: 1px;"><div class="panelContent" style="background-color: #e3fcef;">
+<p><b>Scenario 1:</b> <b>The user wants to log in using passkey</b></p>
+</div></div>
+
+<div class='table-wrap'>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> </th>
+<th class='confluenceTh'><b>Given</b></th>
+<th class='confluenceTh'><b>When</b></th>
+<th class='confluenceTh'><b>Then</b></th>
+</tr>
+<tr>
+<td class='confluenceTd'>🎯</td>
+<td class='confluenceTd'>The user is on the “<a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22989-29147&amp;m=dev" class="external-link" rel="nofollow noreferrer">Login with Password</a>” screen<br/>
+ </td>
+<td class='confluenceTd'>The user clicks on the “Continue with passkey” CTA<br/>
+<b>AND</b> the browser has validated that there is at least one passkeys created</td>
+<td class='confluenceTd'>The browser will prompts the user to unlock their authenticator</td>
+</tr>
+<tr>
+<td class='confluenceTd'>&nbsp;</td>
+<td class='confluenceTd'>The user is on the on-screen promt</td>
+<td class='confluenceTd'>The user is authenticated using his passkey<br/>
+<b>AND</b> the WebAuth authentication is valid (success)<br/>
+<b>AND</b> the SSS login request is success</td>
+<td class='confluenceTd'>The access will be granted<br/>
+<b>AND</b> the user will go to his private area (Global Position)</td>
+</tr>
+</tbody></table>
+</div>
+
+
+<div class="panel" style="background-color: #e3fcef;border-width: 1px;"><div class="panelContent" style="background-color: #e3fcef;">
+<p><b>Scenario 2:</b> <b>The user doesn’t have passkeys created</b></p>
+</div></div>
+
+<div class='table-wrap'>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> </th>
+<th class='confluenceTh'><b>Given</b></th>
+<th class='confluenceTh'><b>When</b></th>
+<th class='confluenceTh'><b>Then</b></th>
+</tr>
+<tr>
+<td class='confluenceTd'>🎯</td>
+<td class='confluenceTd'>The user is on the “<a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22989-29147&amp;m=dev" class="external-link" rel="nofollow noreferrer">Login with Password</a>” screen<br/>
+ </td>
+<td class='confluenceTd'>The user clicks on the “Continue with passkey” CTA<br/>
+<b>AND</b> the browser has validated that there are no passkeys created</td>
+<td class='confluenceTd'>The an <a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22994-26884&amp;m=dev" class="external-link" rel="nofollow noreferrer">error screen</a> will be displayed informing this situation.</td>
+</tr>
+<tr>
+<td class='confluenceTd'>&nbsp;</td>
+<td class='confluenceTd'>The user is on the <a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22994-26884&amp;m=dev" class="external-link" rel="nofollow noreferrer">error screen</a></td>
+<td class='confluenceTd'>The user clicks on the “Login with password” CTA</td>
+<td class='confluenceTd'>The user will go back to the “Login with Password” screen<br/>
+<b>AND</b> the “Continue with passkey” CTA won’t be visible</td>
+</tr>
+<tr>
+<td class='confluenceTd'>🎯</td>
+<td class='confluenceTd'>The user is on the “<a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22994-27336&amp;m=dev" class="external-link" rel="nofollow noreferrer">Login with Password</a>” screen</td>
+<td class='confluenceTd'>The user is authenticated using his password<br/>
+<b>AND</b> the WebAuth authentication is valid (success)<br/>
+<b>AND</b> the SSS login request is success</td>
+<td class='confluenceTd'>The access will be granted<br/>
+<b>AND</b> the user will be redirected to the “<a href="https://www.figma.com/design/Xe5xcZKXoz0fS1IiEIWoYc/UI-WIP-RWD--Passkeys-Management?node-id=2025-14715&amp;m=dev" class="external-link" rel="nofollow noreferrer">Passkeys Manager</a>” screen.</td>
+</tr>
+<tr>
+<td class='confluenceTd'>&nbsp;</td>
+<td class='confluenceTd'>The user is on the <a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22994-26884&amp;m=dev" class="external-link" rel="nofollow noreferrer">error screen</a></td>
+<td class='confluenceTd'>The user clicks on the “Exit” CTA</td>
+<td class='confluenceTd'>The user will be redirect to the public site.</td>
+</tr>
+</tbody></table>
+</div>
+
+
+<div class="panel" style="background-color: #e3fcef;border-width: 1px;"><div class="panelContent" style="background-color: #e3fcef;">
+<p><b>Scenario 2:</b> <b>The browser is not compatible with passkeys/WebAuth</b></p>
+</div></div>
+
+<div class='table-wrap'>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> </th>
+<th class='confluenceTh'><b>Given</b></th>
+<th class='confluenceTh'><b>When</b></th>
+<th class='confluenceTh'><b>Then</b></th>
+</tr>
+<tr>
+<td class='confluenceTd'>🎯</td>
+<td class='confluenceTd'>The user is on the “<a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22989-29147&amp;m=dev" class="external-link" rel="nofollow noreferrer">Login with Password</a>” screen<br/>
+ </td>
+<td class='confluenceTd'>The user clicks on the “Continue with passkey” CTA<br/>
+<b>AND</b> the current browser current does not support passkeys/WebAuth</td>
+<td class='confluenceTd'>The an <a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22994-27280&amp;m=dev" class="external-link" rel="nofollow noreferrer">error screen</a> will be displayed informing this situation.</td>
+</tr>
+<tr>
+<td class='confluenceTd'>&nbsp;</td>
+<td class='confluenceTd'>The user is on the <a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22994-27280&amp;m=dev" class="external-link" rel="nofollow noreferrer">error screen</a></td>
+<td class='confluenceTd'>The user clicks on the “Login with password” CTA</td>
+<td class='confluenceTd'>The user will go back to the “Login with Password” screen</td>
+</tr>
+<tr>
+<td class='confluenceTd'>🎯</td>
+<td class='confluenceTd'>The user is on the “<a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22989-29147&amp;m=dev" class="external-link" rel="nofollow noreferrer">Login with Password</a>” screen</td>
+<td class='confluenceTd'>The user is authenticated using his password<br/>
+<b>AND</b> the SSS authentication is success</td>
+<td class='confluenceTd'>The access will be granted<br/>
+<b>AND</b> the user will go to his private area (Global Position)</td>
+</tr>
+<tr>
+<td class='confluenceTd'>&nbsp;</td>
+<td class='confluenceTd'>The user is on the <a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22994-26884&amp;m=dev" class="external-link" rel="nofollow noreferrer">error screen</a></td>
+<td class='confluenceTd'>The user clicks on the “Exit” CTA</td>
+<td class='confluenceTd'>The user will be redirect to the public site.</td>
+</tr>
+</tbody></table>
+</div>
+
+
+<div class="panel" style="background-color: #e3fcef;border-width: 1px;"><div class="panelContent" style="background-color: #e3fcef;">
+<p><b>Scenario 4:</b> <b>The user cancels the login with passkey</b></p>
+</div></div>
+
+<div class='table-wrap'>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> </th>
+<th class='confluenceTh'><b>Given</b></th>
+<th class='confluenceTh'><b>When</b></th>
+<th class='confluenceTh'><b>Then</b></th>
+</tr>
+<tr>
+<td class='confluenceTd'>🎯</td>
+<td class='confluenceTd'>The user is on the on-screen promt</td>
+<td class='confluenceTd'>The user cancels the authentication process</td>
+<td class='confluenceTd'>The login with passkey process will be canceled<br/>
+<b>AND</b> an <a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22995-26163&amp;m=dev" class="external-link" rel="nofollow noreferrer">error snackbar</a> will be displayed informing the situation.
+<div class="panel" style="background-color: #eae6ff;border-width: 1px;"><div class="panelContent" style="background-color: #eae6ff;">
+<p>According to the “<a href="https://www.figma.com/design/n9UUfTNerkDed8GBQMb6RM/-R.7--Kubit-Global-Documentation?node-id=116279-319982&amp;m=dev" class="external-link" rel="nofollow noreferrer">Component Documentation</a>”, the snacbark will auto dismiss in 10 seconds.</p>
+</div></div></td>
+</tr>
+</tbody></table>
+</div>
+
+
+<div class="panel" style="background-color: #e3fcef;border-width: 1px;"><div class="panelContent" style="background-color: #e3fcef;">
+<p><b>Scenario 5:</b> <b>The authentication with passkey fails</b></p>
+</div></div>
+
+<div class='table-wrap'>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> </th>
+<th class='confluenceTh'><b>Given</b></th>
+<th class='confluenceTh'><b>When</b></th>
+<th class='confluenceTh'><b>Then</b></th>
+</tr>
+<tr>
+<td class='confluenceTd'>🎯</td>
+<td class='confluenceTd'>The user is on the “<a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22989-29147&amp;m=dev" class="external-link" rel="nofollow noreferrer">Login with Password</a>” screen<br/>
+ </td>
+<td class='confluenceTd'>The user clicks on the “Continue with passkey” CTA<br/>
+<b>AND</b> there is at least one passkeys created</td>
+<td class='confluenceTd'>The browser will prompts the user to unlock their authenticator</td>
+</tr>
+<tr>
+<td class='confluenceTd'>&nbsp;</td>
+<td class='confluenceTd'>The user is on the on-screen promt</td>
+<td class='confluenceTd'>The user is authenticated using his passkey<br/>
+<b>AND</b> the WebAuth authentication fails</td>
+<td class='confluenceTd'>The access won’t be granted<br/>
+<b>AND</b> an <a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22994-29913&amp;m=dev" class="external-link" rel="nofollow noreferrer">error snackbar</a> will be displayed informing the situation.
+<div class="panel" style="background-color: #eae6ff;border-width: 1px;"><div class="panelContent" style="background-color: #eae6ff;">
+<p>According to the “<a href="https://www.figma.com/design/n9UUfTNerkDed8GBQMb6RM/-R.7--Kubit-Global-Documentation?node-id=116279-319982&amp;m=dev" class="external-link" rel="nofollow noreferrer">Component Documentation</a>”, the snacbark will auto dismiss in 10 seconds.</p>
+</div></div></td>
+</tr>
+</tbody></table>
+</div>
+
+
+<div class="panel" style="background-color: #e3fcef;border-width: 1px;"><div class="panelContent" style="background-color: #e3fcef;">
+<p><b>Scenario 6:</b> <b>The SSS API requests fails</b></p>
+</div></div>
+
+<div class='table-wrap'>
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> </th>
+<th class='confluenceTh'><b>Given</b></th>
+<th class='confluenceTh'><b>When</b></th>
+<th class='confluenceTh'><b>Then</b></th>
+</tr>
+<tr>
+<td class='confluenceTd'>🎯</td>
+<td class='confluenceTd'>The user is on the “<a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=22989-29147&amp;m=dev" class="external-link" rel="nofollow noreferrer">Login with Password</a>” screen<br/>
+ </td>
+<td class='confluenceTd'>The user clicks on the “Continue with passkey” CTA<br/>
+<b>AND</b> SSS request to get information fails<br/>
+<a href="https://retail-commercial.atlassian.net/wiki/spaces/RP/pages/987136890/04.1.1.2.9+API+SSS+-+Init+Login+Passkeys" title="smart-link" class="external-link" rel="nofollow noreferrer">https://retail-commercial.atlassian.net/wiki/spaces/RP/pages/987136890/04.1.1.2.9+API+SSS+-+Init+Login+Passkeys</a></td>
+<td class='confluenceTd'>The “<a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=23665-37385&amp;m=dev" class="external-link" rel="nofollow noreferrer">Login Technical Error</a>” screen will be displayed.
+<div class="panel" style="background-color: #eae6ff;border-width: 1px;"><div class="panelContent" style="background-color: #eae6ff;">
+<p>The “Login Technical Error” screen is already implemented.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class='confluenceTd'>🎯</td>
+<td class='confluenceTd'>The user has clicked on the “Continue with passkey” CTA<br/>
+<b>AND</b> the on-screen promt is displayed</td>
+<td class='confluenceTd'>The user is authenticated using his passkey<br/>
+<b>AND</b> the WebAuth authentication is valid (success)<br/>
+<b>AND</b> the SSS login request fails<br/>
+<a href="https://retail-commercial.atlassian.net/wiki/spaces/RP/pages/987136910/04.1.1.2.9+API+SSS+-+Finish+Login+Passkeys" title="smart-link" class="external-link" rel="nofollow noreferrer">https://retail-commercial.atlassian.net/wiki/spaces/RP/pages/987136910/04.1.1.2.9+API+SSS+-+Finish+Login+Passkeys</a></td>
+<td class='confluenceTd'>The access won’t be granted<br/>
+<b>AND</b> the “<a href="https://www.figma.com/design/P3TJFJsBwvatAuoYgfFeHM/UI-WIP-RWD---Login?node-id=23665-37385&amp;m=dev" class="external-link" rel="nofollow noreferrer">Login Technical Error</a>” screen will be displayed.
+<div class="panel" style="background-color: #eae6ff;border-width: 1px;"><div class="panelContent" style="background-color: #eae6ff;">
+<p>The “Login Technical Error” screen is already implemented.</p>
+</div></div></td>
+</tr>
+</tbody></table>
+</div>
+
+
+<div class="panel" style="background-color: #deebff;border-width: 1px;"><div class="panelContent" style="background-color: #deebff;">
+<p><b>Open Questions</b></p>
+
+<p>None.</p>
+</div></div>
+
+<div class="panel" style="background-color: #deebff;border-width: 1px;"><div class="panelContent" style="background-color: #deebff;">
+<p><b>Out of scope</b></p>
+
+<p>None.</p>
+</div></div>
+
+<div class="panel" style="background-color: #deebff;border-width: 1px;"><div class="panelContent" style="background-color: #deebff;">
+<p><b>Impediments</b></p>
+
+<p>None.</p>
+</div></div>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Comentarios</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-231576"><td bgcolor="#f0f0f0">
+              Comentado por
+                                                    
+                
+        
+            <a class="user-hover" rel="712020:e56e8376-68fc-4c7a-8dd2-0c2eb92415f1"
+                id="word_commented_712020:e56e8376-68fc-4c7a-8dd2-0c2eb92415f1"
+                href="https://retail-commercial.atlassian.net/secure/ViewProfile.jspa?accountId=712020%3Ae56e8376-68fc-4c7a-8dd2-0c2eb92415f1">
+                    Gerardo Humberto Pascual
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">21/oct/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-231576"><td bgcolor="#ffffff">
+            <p><a href="https://retail-commercial.atlassian.net/secure/ViewProfile.jspa?accountId=712020%3Aa640677e-3b3e-499d-b64c-4c33ab70f914" class="user-hover" rel="712020:a640677e-3b3e-499d-b64c-4c33ab70f914" data-account-id="712020:a640677e-3b3e-499d-b64c-4c33ab70f914" accountid="712020:a640677e-3b3e-499d-b64c-4c33ab70f914" rel="noreferrer">Kevin Rivera Ramirez</a> <a href="https://retail-commercial.atlassian.net/secure/ViewProfile.jspa?accountId=712020%3A29a54f74-d25d-4904-914b-ebba2ea57ce1" class="user-hover" rel="712020:29a54f74-d25d-4904-914b-ebba2ea57ce1" data-account-id="712020:29a54f74-d25d-4904-914b-ebba2ea57ce1" accountid="712020:29a54f74-d25d-4904-914b-ebba2ea57ce1" rel="noreferrer">Richard Alexander Lozada Vilchez</a></p>
+
+<p>The information regarding to the “Biocatch” context has been added.</p>
+        </td></tr>
+            </table>
+Generado a las Wed Dec 03 09:59:16 UTC 2025 por Kevin Rivera Ramirez usando JIRA 1001.0.0-SNAPSHOT#100290-rev:bfd7716584ccd955a44e61065accb02bc85616bf.
+
+</body>
+</html>

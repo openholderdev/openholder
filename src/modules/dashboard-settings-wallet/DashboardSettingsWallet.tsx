@@ -20,8 +20,7 @@ export const DashboardSettingsWallet = observer(function DashboardSettingsWallet
   }, [session?.user.email]);
 
   const handleCustomerKycCheck = async () => {
-    const result = await store.getCustomerKycCompleted(session?.user.email as string);
-    store.customerKycCompleted = result ? result : false;
+    await store.getCustomerKycCompleted(session?.user.id as string);
   };
 
   return (

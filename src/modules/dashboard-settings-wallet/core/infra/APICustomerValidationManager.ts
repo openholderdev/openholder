@@ -3,9 +3,9 @@ import { APIGetCustomerValidations } from "../domain/applications/APIGetCustomer
 import { CustomerValidations } from "../domain/models/CustomerValidations";
 
 export class APICustomerValidationManager implements APIGetCustomerValidations {
-  async execute(email: string): Promise<Error | CustomerValidations> {
+  async execute(customerId: string): Promise<CustomerValidations> {
     try {
-      const getCustomerKycValidation = await axios.get(`/api/customer/kyc/get-customer-validation?email=${email}`)
+      const getCustomerKycValidation = await axios.get(`/api/customer/kyc/get-customer-validation?customerId=${customerId}`)
       
       if (!getCustomerKycValidation.data) {
         return {

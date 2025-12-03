@@ -11,15 +11,20 @@ import KycFinancialInformation from "./sections/kyc-financial-information/KycFin
 import KycSuccess from "./sections/kyc-success/KycSuccess";
 import KycPendingValidation from "./sections/kyc-pending-validation/KycPendingValidation";
 import KycApprovedValidation from "./sections/kyc-approved-validation/KycApprovedValidation";
+import { useSession } from "next-auth/react";
 
 export default observer(function DashboardSettingKyc() {
   const controller = DashboardSettingsKycController.getInstance();
+  const { data: session } = useSession();
 
   useEffect(() => {
-    controller.initialize();
-  }, [controller.activeStepView]);
+    controller.initialize(session?.user.id as string);
+  }, [controller.activeStepView, session?.user.id]);
 
   useEffect(() => {
+    if (toJS(controller.showCustomerHasKycData)) {
+      controller.setStepView(7);
+    }
     if (controller.statusKycCustomer === "approved") {
       controller.setStepView(7);
     }
@@ -29,7 +34,7 @@ export default observer(function DashboardSettingKyc() {
     if (controller.statusKycCustomer === "pending") {
       controller.setStepView(6);
     }
-  }, [controller.statusKycCustomer]);
+  }, [controller.statusKycCustomer, controller.initialize, controller.showCustomerHasKycData]);
 
   const stepViews: { [key: string]: ReactNode } = {
     "0": (

@@ -13,6 +13,7 @@ export interface CustomerWallet {
   walletAddress: string;
   globalStatus: 'PENDING' | 'APPROVED' | 'REJECTED' | 'NOT_REQUESTED';
   spainStatus: 'PENDING' | 'APPROVED' | 'REJECTED' | 'NOT_REQUESTED';
+  transactions: any[];
 }
 
 export interface WalletCreationDto {

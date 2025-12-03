@@ -6,5 +6,6 @@ export interface CustomerWallet {
   globalStatus: 'PENDING' | 'VERIFIED' | 'REJECTED' | 'NOT_REQUESTED';
   spainStatus: 'PENDING' | 'VERIFIED' | 'REJECTED' | 'NOT_REQUESTED';
   creationDate: Date;
-  investments: any;
+  investments: any[];
+  transactions: any[];
 }

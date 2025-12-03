@@ -1,4 +1,4 @@
-import { makeAutoObservable, toJS } from "mobx";
+import { makeAutoObservable, runInAction, toJS } from "mobx";
 import { kycStep1DefaultValues } from "./sections/kyc-personal-information/form/defaultValues";
 import { kycFinancialDefaultValues } from "./sections/kyc-financial-information/form/defaultValues";
 import { APICustomerKycManager } from "./core/infra/APICustomerKycManager";
@@ -38,14 +38,15 @@ export class DashboardSettingsKycController {
     try {
       type response = { customerKycExists: boolean, data?: CustomerKycSchema };
       const customerKycCheckRequest: response | Error = await this.#apiCustomerKycRepository.checkExistingKyc?.(customerId);
-
-      if (customerKycCheckRequest.customerKycExists) {
-        this.showCustomerHasKycData = true;
-        this.statusKycCustomer = customerKycCheckRequest.data?.status as 'pending' | 'approved' | 'rejected';
-      } else {
-        this.showCustomerHasKycData = false;
-        this.statusKycCustomer = null;
-      }
+      runInAction(() => {
+        if (customerKycCheckRequest.customerKycExists) {
+          this.showCustomerHasKycData = false; 
+          this.statusKycCustomer = customerKycCheckRequest.data?.status as 'pending' | 'approved' | 'rejected';
+        } else {
+          this.showCustomerHasKycData = false;
+          this.statusKycCustomer = null;
+        }
+      }); 
     } catch (error) {
       console.error("Error initializing KYC data:", error);
     }

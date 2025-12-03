@@ -45,7 +45,8 @@ export class WalletManager implements CustomerManagerDomain {
         investments: [],
         globalStatus: isSignGlobal ? 'PENDING' : 'NOT_REQUESTED',
         spainStatus: isSignSpain ? 'PENDING' : 'NOT_REQUESTED',
-        alias: this.req.body.alias || 'Default Alias'
+        alias: this.req.body.alias || 'Default Alias',
+        transactions: []
       };
 
       const customer = await customersCollection.findOne({ customerId: this.req.body.customerId });

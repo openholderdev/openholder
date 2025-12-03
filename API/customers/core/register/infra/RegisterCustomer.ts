@@ -39,7 +39,7 @@ export class AuthenticateCustomer implements RegisterCustomer {
         phone: customerSchema.phone || null,
         emailVerified: false,
         verificationToken: confirmedEmailToken,
-        kycStatus: 'NO_STARTED'
+        kycStatus: false
       });
 
       const mailManager = new MailerManagerController();

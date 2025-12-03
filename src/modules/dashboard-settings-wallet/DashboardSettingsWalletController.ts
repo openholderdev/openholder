@@ -4,6 +4,7 @@ import { WEB3WalletConnectManager } from "./core/infra/WEB3WalletConnectManager"
 import { CustomerWallet, Wallet, WalletCreation } from "./core/domain/models/Wallet";
 import { APIWalletCreationManager } from "./core/infra/APIWalletCreationManager";
 import { APICustomerWalletsManager } from "./core/infra/APICustomerWalletsManager";
+import { CustomerValidations } from "./core/domain/models/CustomerValidations";
 
 export interface StatusConnectedWallet {
   isValid: boolean;
@@ -32,13 +33,20 @@ export class DashboardSettingsWalletController {
     makeAutoObservable(this);
   }
 
-  async getCustomerKycCompleted(email: string): Promise<boolean | void> {
+  async getCustomerKycCompleted(customerId: string): Promise<boolean | void> {
     const controller = new APICustomerValidationManager();
-    const isUserCompleted = await controller.execute(email);
-    if (isUserCompleted instanceof Error) {
-      return false;
-    };
-    return isUserCompleted.customerKycCompleted;
+    try {
+      const response : CustomerValidations | Error = await controller.execute(customerId) 
+      runInAction(() => {
+      if (response?.customerKycCompleted) {
+        this.customerKycCompleted = response?.customerKycCompleted;
+        return;
+      };
+      this.customerKycCompleted = false;
+    });
+    } catch (error) {
+      return Promise.resolve(undefined);
+    }
   }; 
 
   async getCustomerWalletsStored(customerId: string): Promise<CustomerWallet[] | void> {
