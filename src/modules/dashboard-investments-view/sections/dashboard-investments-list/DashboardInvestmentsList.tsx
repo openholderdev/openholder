@@ -42,7 +42,10 @@ export const DashboardInvestmentList = observer(function DashboardInvestmentList
   }, [store, store.filterInversionCategory, store.filterInversionStatus]);
 
   return (
-    <section data-testid="dashboard-investment-list" className="px-4 pt-10 pb-40">
+    <section
+      data-testid="dashboard-investment-list"
+      className="min-h-[85vh] px-4 pt-10 pb-40 bg-[#21242D]"
+    >
       <div className="flex flex-col md:grid md:grid-cols-12 gap-3 md:gap-1">
         {investmentsFiltered.map((entry: UIInvestment) => (
           <CardInvestment entry={entry} key={entry.investmentId} />

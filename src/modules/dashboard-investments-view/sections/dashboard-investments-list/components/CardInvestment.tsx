@@ -18,8 +18,14 @@ export default function CardInvestment({ entry }: { entry: UIInvestment }) {
   const buttonBg = TOKEN_STATUS_CONFIGS[entry.status].button.bgColor;
   const buttonText = TOKEN_STATUS_CONFIGS[entry.status].button.textColor;
   return (
-    <div className="shadow-lg  rounded-lg pb-4 md:col-span-6" key={entry.investmentId}>
-      <div data-testid="investment-gallery-image" className="flex overflow-x-auto gap-2">
+    <div
+      className="shadow-lg  rounded-lg pb-4 rounded-t-xl md:col-span-6 bg-[#F1F2F3] overflow-hidden"
+      key={entry.investmentId}
+    >
+      <div
+        data-testid="investment-gallery-image"
+        className="flex overflow-x-auto gap-2 rounded-t-xl"
+      >
         <img
           src={existGallery}
           alt={entry.nameProject}
@@ -30,7 +36,7 @@ export default function CardInvestment({ entry }: { entry: UIInvestment }) {
         <div className="flex justify-between">
           <p className="text-md font-semibold">{entry.nameProject}</p>
           <p className="text-md font-bold">
-            {formatEuropeanNumber(entry.financial.totalInvestmentAmount)}
+            {formatEuropeanNumber(Number(entry.financial.totalInvestmentAmount || 0))}
           </p>
         </div>
       </div>
@@ -106,10 +112,10 @@ export default function CardInvestment({ entry }: { entry: UIInvestment }) {
                 Rendimiento mensual + final
               </span>
             </p>
-            <div>
+            <div className="pt-3">
               <button
                 onClick={() => setBuyToken(true)}
-                className="py-2 w-full bg-[#171717] text-white cursor-pointer border-1 border-black rounded-md"
+                className="py-2 w-full bg-[#F5C249] cursor-pointer text-[#16171D] rounded-md shadow-md"
               >
                 Invertir
               </button>

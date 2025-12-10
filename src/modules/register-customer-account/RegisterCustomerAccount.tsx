@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { observer } from "mobx-react-lite";
 import { RegisterCustomerAccountController } from "./RegisterCustomerAccountController";
@@ -11,11 +11,11 @@ export const RegisterCustomerAccount = observer(function RegisterCustomerAccount
   const store = RegisterCustomerAccountController.getInstance();
 
   return (
-    <div className="h-screen py-4 px-4">
+    <div className="h-screen py-4 px-4 bg-[#16171D] text-white">
       <RegisterCustomerHeader />
-      {store.showEmailVerificationSection && (<RegisterCustomerContent />)}
-      {store.showCompleteRegisterSection && (<RegisterCustomerCompleteRegisterSection />)}
-      {store.completeRegisterProccess && (<RegisterCustomerSuccess />)}
+      {store.showEmailVerificationSection && <RegisterCustomerContent />}
+      {store.showCompleteRegisterSection && <RegisterCustomerCompleteRegisterSection />}
+      {store.completeRegisterProccess && <RegisterCustomerSuccess />}
     </div>
   );
 });

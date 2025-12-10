@@ -115,7 +115,7 @@ export default function DashboardBuyTokenSection({ investmentId }: DashboardBuyT
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full mt-6 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 disabled:bg-gray-400"
+          className="w-full mt-6 bg-[#F5C249] text-[#16171D] py-3 rounded-lg hover:bg-yellow-500 disabled:bg-gray-400"
         >
           {isSubmitting ? "Procesando..." : "Comprar tokens"}
         </button>

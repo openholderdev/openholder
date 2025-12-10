@@ -33,7 +33,7 @@ export default function SignInCustomerView() {
   }
 
   return (
-    <main>
+    <main className="h-screen bg-[#16171D]">
       <LoginCustomerHeader />
       <LoginCustomerContent />
     </main>

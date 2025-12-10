@@ -41,9 +41,9 @@ export const LoginCustomerContent = observer(() => {
   };
 
   return (
-    <section className="px-4">
+    <section className="px-4 text-[#F8F8F8]">
       <div className="pt-24 flex flex-col items-center justify-center">
-        <p className="text-2xl text-[#171717] font-semibold">
+        <p className="text-2xl text-[#FFFFFF] font-semibold">
           {showEmailValidationSection ? "Inicia sesión con tu Email" : "Introduce tu contraseña"}
         </p>
         <p className="text-xs">
@@ -51,7 +51,7 @@ export const LoginCustomerContent = observer(() => {
             <span className="text-sm">
               ¿Aún no tienes una cuenta?
               <span
-                className="text-underline text-underline font-semibold px-2 cursor-pointer"
+                className="text-[#F5C249] text-underline text-underline font-semibold px-2 cursor-pointer"
                 onClick={() => router.push("/auth/register")}
               >
                 Registrate.
@@ -64,20 +64,20 @@ export const LoginCustomerContent = observer(() => {
         {showEmailValidationSection && (
           <div data-testid="validate-email">
             <div className="grid grid-cols-12 pt-8 pb-2">
-              <label className="col-span-12 text-left text-sm py-1">
-                Introduce el número que usaste para crear tu cuenta.
+              <label className="col-span-12 text-left text-sm py-1 text-[#A7AEBF]">
+                Email address
               </label>
               <input
                 onChange={(ev) => setEmail(ev.target.value)}
-                className="col-span-12 px-3 py-3 border-1 border-[#171717] border-2 rounded-lg"
+                className="col-span-12 px-3 py-3 border-1 border-[#171717] border-2 rounded-lg bg-[#21242D] text-[#F8F8F8]"
                 type="text"
-                placeholder={t("auth.email.placeholder")}
+                placeholder="Enter your email address"
               />
             </div>
             <div className="pt-4">
               <button
                 onClick={() => handleValidateEmail()}
-                className="bg-[#ec0000] w-full py-3 rounded-lg hover:bg-[#191919] cursor-pointer text-white"
+                className="bg-[#F5C249] w-full px-[22px] py-[13px]  cursor-pointer text-[#16171D]  rounded-[13px]"
               >
                 {t("auth.continue")}
               </button>
@@ -87,22 +87,24 @@ export const LoginCustomerContent = observer(() => {
         {showAuthenticationSection && (
           <div data-testid="validate-password">
             <div className="grid grid-cols-12 pt-8 pb-2">
-              <label className="col-span-12 text-left text-sm py-1">Introduce tu contraseña</label>
+              <label className="col-span-12 text-left text-sm py-1 text-[#A7AEBF]">
+                Contraseña
+              </label>
               <input
                 onChange={(ev) => {
                   setPassword(ev.target.value);
                 }}
-                className="col-span-12 px-3 py-3 border-1 border-[#171717] border-2 rounded-lg"
+                className="col-span-12 px-3 py-3 border-1 border-[#171717] border-2 rounded-lg bg-[#21242D] text-[#F8F8F8]"
                 type="password"
-                placeholder={"Con***fsdf"}
+                placeholder={"Introduzca su contraseña"}
               />
             </div>
             <div className="pt-4">
               <button
                 onClick={() => doLogin()}
-                className="font-semibold bg-[#ec0000] w-full py-3 rounded-lg hover:bg-[#212121] cursor-pointer text-white"
+                className="bg-[#F5C249] w-full px-[22px] py-[13px]  cursor-pointer text-[#16171D]  rounded-[13px]"
               >
-                Iniciar sesión
+                {t("auth.continue")}
               </button>
             </div>
           </div>
