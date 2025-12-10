@@ -1,0 +1,7 @@
+DEV_MONGO_USER=stevenistryhard_db_user
+DEV_MONGO_PASSWORD=VHEbZhqy2nF4WWo9
+MONGODB_URI=mongodb+srv://stevenistryhard_db_user:VHEbZhqy2nF4WWo9@cluster0.xtnvede.mongodb.net/?appName=Cluster0
+RESEND_API_KEY=re_dBa43a3g_8i9Xy7idXxgF5wLGmUwR2qy8
+NEXTAUTH_SECRET=d78ssmnaujnasuy78ygs 
+
+GITHUB_EMAIL_DEV=tradekevin22@gmail.com
